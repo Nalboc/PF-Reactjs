@@ -1,0 +1,41 @@
+/* Estilos de la tarjeta */
+.card {
+    background-color: #fff;
+    width: 200px;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    text-align: center;
+    padding: 10px;
+  }
+  /* Estilo de la imagen */
+  .card img {
+    border-radius: 8px;
+    object-fit: cover;
+    margin-bottom: 10px;
+  }
+  
+  /* Estilo de la tarjeta (cuerpo) */
+  .card-body {
+    margin-bottom: 10px;
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 8px;
+  }
+  
+  .card-text {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Estilo del precio */
+  .card-price {
+    font-size: 16px;
+    font-weight: bold;
+    color: #e94e77;
+    margin-top: 10px;
+  }
