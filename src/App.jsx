@@ -1,14 +1,20 @@
-import './App.css'
-import NavBar from './components/NavBar'
-import ItemListContainer from './components/ItemListContainer'
+import "./App.css";
+import NavBar from "./components/NavBar";
+import ItemListContainer from "./components/ItemListContainer";
+import ItemCount from "./components/ItemCount";
 
 function App() {
   return (
     <>
       <NavBar></NavBar>
-      <ItemListContainer text = "Bienvenido, esto es una tienda de bicicletas."></ItemListContainer>
+      <section>
+        <ItemListContainer></ItemListContainer>
+      </section>
+      <section>
+        <ItemCount />
+      </section>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
