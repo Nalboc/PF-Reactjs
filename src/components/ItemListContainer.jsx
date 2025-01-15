@@ -1,29 +1,23 @@
-import CardProduct from "./CardProduct";
-import FlexContainer from "./FlexContainer";
-import getAsyncData from "../data/getAsyncData";
+import getAsyncData, { getAsyncItemsByCategory } from "../data/getAsyncData";
+import ItemList from "./ItemList";
 import { useState, useEffect } from "react";
-export default function ItemListContainer() {
+import { useParams } from "react-router-dom";
+export default function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
   console.log("render de itemlist");
+  const { catid } = useParams();
   useEffect(() => {
-    const respuestaPromise = getAsyncData();
+    const respuestaPromise =
+      catid === undefined ? getAsyncData() : getAsyncItemsByCategory(catid);
     console.log(respuestaPromise);
     respuestaPromise
       .then((respuesta) => setProducts(respuesta))
       .catch((error) => alert(error));
-  }, []);
-  const list = products.map((prod) => (
-    <CardProduct
-      key={prod.id}
-      title={prod.title}
-      price={prod.price}
-      text={prod.category}
-      img={prod.img}
-    />
-  ));
+  }, [catid]);
   return (
     <div>
-      <FlexContainer>{list}</FlexContainer>
+      <h1 className="navbar-title">{props.children}</h1>
+      <ItemList products={products}></ItemList>
     </div>
   );
 }

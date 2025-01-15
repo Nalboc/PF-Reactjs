@@ -1,10 +1,10 @@
-const bicicletas = [
+const products = [
   {
     id: 1,
     price: 299.99,
     title: "Bicicleta de montaña MTB 300",
     img: "https://picsum.photos/200/300",
-    category: "Montaña",
+    category: "montaña",
     stock: 12,
   },
   {
@@ -12,7 +12,7 @@ const bicicletas = [
     price: 399.99,
     title: "Bicicleta de carretera AeroX",
     img: "https://picsum.photos/200/300",
-    category: "Carretera",
+    category: "carretera",
     stock: 8,
   },
   {
@@ -20,7 +20,7 @@ const bicicletas = [
     price: 499.99,
     title: "Bicicleta eléctrica City E-Bike",
     img: "https://picsum.photos/200/300",
-    category: "Eléctrica",
+    category: "electrica",
     stock: 5,
   },
   {
@@ -28,7 +28,7 @@ const bicicletas = [
     price: 159.99,
     title: "Bicicleta urbana VeloCity",
     img: "https://picsum.photos/200/300",
-    category: "Urbana",
+    category: "urbana",
     stock: 15,
   },
   {
@@ -36,7 +36,7 @@ const bicicletas = [
     price: 549.99,
     title: "Bicicleta de montaña MTB Pro",
     img: "https://picsum.photos/200/300",
-    category: "Montaña",
+    category: "montaña",
     stock: 6,
   },
   {
@@ -44,7 +44,7 @@ const bicicletas = [
     price: 249.99,
     title: "Bicicleta plegable Compacta 200",
     img: "https://picsum.photos/200/300",
-    category: "Plegable",
+    category: "plegable",
     stock: 10,
   },
   {
@@ -52,7 +52,7 @@ const bicicletas = [
     price: 799.99,
     title: "Bicicleta de carretera Racer X",
     img: "https://picsum.photos/200/300",
-    category: "Carretera",
+    category: "carretera",
     stock: 4,
   },
   {
@@ -60,7 +60,7 @@ const bicicletas = [
     price: 599.99,
     title: "Bicicleta eléctrica E-Motion",
     img: "https://picsum.photos/200/300",
-    category: "Eléctrica",
+    category: "electrica",
     stock: 7,
   },
   {
@@ -68,7 +68,7 @@ const bicicletas = [
     price: 179.99,
     title: "Bicicleta de ciudad CityCruiser",
     img: "https://picsum.photos/200/300",
-    category: "Urbana",
+    category: "urbana",
     stock: 20,
   },
   {
@@ -76,7 +76,7 @@ const bicicletas = [
     price: 650.0,
     title: "Bicicleta de montaña X-Trail 500",
     img: "https://picsum.photos/200/300",
-    category: "Montaña",
+    category: "montaña",
     stock: 3,
   },
   {
@@ -84,7 +84,7 @@ const bicicletas = [
     price: 219.99,
     title: "Bicicleta híbrida CitySport",
     img: "https://picsum.photos/200/300",
-    category: "Híbrida",
+    category: "hibrida",
     stock: 14,
   },
   {
@@ -92,7 +92,7 @@ const bicicletas = [
     price: 350.0,
     title: "Bicicleta eléctrica EcoRide",
     img: "https://picsum.photos/200/300",
-    category: "Eléctrica",
+    category: "electrica",
     stock: 9,
   },
   {
@@ -100,7 +100,7 @@ const bicicletas = [
     price: 399.0,
     title: "Bicicleta de carretera SpeedMaster",
     img: "https://picsum.photos/200/300",
-    category: "Carretera",
+    category: "carretera",
     stock: 5,
   },
   {
@@ -108,7 +108,7 @@ const bicicletas = [
     price: 249.0,
     title: "Bicicleta de montaña TrailX",
     img: "https://picsum.photos/200/300",
-    category: "Montaña",
+    category: "montaña",
     stock: 8,
   },
   {
@@ -116,8 +116,8 @@ const bicicletas = [
     price: 450.0,
     title: "Bicicleta eléctrica Urban E-Rider",
     img: "https://picsum.photos/200/300",
-    category: "Eléctrica",
+    category: "electrica",
     stock: 4,
   },
 ];
-export default bicicletas;
+export default products;

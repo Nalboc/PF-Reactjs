@@ -1,5 +1,6 @@
 import "./CardProduct.css";
-export default function CardProduct(props) {
+import { Link } from "react-router-dom";
+export default function Item(props) {
   const { price, title, text, img, id } = props;
   return (
     <div className="card">
@@ -7,8 +8,13 @@ export default function CardProduct(props) {
       <div className="card-body">
         <h3 className="card-title">{title}</h3>
         <p className="card-text">{text}</p>
+        <div>
+          <p className="card-price">${price}</p>
+        </div>
+        <Link to={`/item/${id}`}>
+          <button>Ver detalle</button>
+        </Link>
       </div>
-      <p className="card-price">${price}</p>
     </div>
   );
 }
