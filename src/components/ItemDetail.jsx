@@ -1,7 +1,17 @@
 import FlexContainer from "./FlexContainer";
+import ItemCount from "./ItemCount";
+import { useContext, useState } from "react";
+import cartContext from "../context/cartContext";
 
 export function ItemDetail(props) {
-  const { price, title, category, text, img } = props;
+  const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const { id, price, title, category, text, img } = props;
+  const { addItem } = useContext(cartContext);
+  function handleAddToCart(count) {
+    console.log(`Agregaste ${count}`);
+    addItem({ id, price, title, count, img });
+    setIsAddedToCart(true);
+  }
   return (
     <FlexContainer>
       <div>
@@ -13,7 +23,13 @@ export function ItemDetail(props) {
             <p>{price}</p>
           </div>
           <p>{category}</p>
-          <button>comprar</button>
+        </div>
+        <div>
+          {isAddedToCart ? (
+            <button>Ver carrito</button>
+          ) : (
+            <ItemCount onSubmitCount={handleAddToCart}></ItemCount>
+          )}
         </div>
       </div>
     </FlexContainer>
