@@ -7,6 +7,7 @@ export default function ItemListContainer(props) {
   console.log("render de itemlist");
   const { catid } = useParams();
   useEffect(() => {
+    console.log("catid", catid);
     const respuestaPromise =
       catid === undefined ? getAsyncData() : getAsyncItemsByCategory(catid);
     console.log(respuestaPromise);
