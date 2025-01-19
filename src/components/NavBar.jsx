@@ -13,7 +13,7 @@ export default function NavBar({ text }) {
         <Link to="/category/urbana">Urbana</Link>
         <Link to="/category/plegable">Plegable</Link>
         <Link to="/category/hibrida">Híbrida</Link>
-        <Link to="#">
+        <Link to="/cart">
           <CartWidget></CartWidget>
         </Link>
       </nav>

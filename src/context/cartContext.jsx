@@ -1,36 +1,41 @@
-import { Children, createContext, useState } from "react";
+import { createContext, useState } from "react";
 
 const cartContext = createContext("carrito");
 
 export function CartContextProvider(props) {
-  const [cartItems, setCardItems] = useState([{ item: 1, count: 30 }]);
+  const [cartItems, setCartItems] = useState([]);
   function removeItem(id) {
     const newCartState = cartItems.filter((item) => item.id !== id);
-    setCardItems(newCartState);
+    setCartItems(newCartState);
   }
-  function addItem({ id, price, title, count, img }) {
-    const copyCartItems = cartItems.map((item) => item);
-    copyCartItems.push({
-      id: id,
-      price: price,
-      title: title,
-      count: count,
-      img: img,
-    });
-    setCardItems(copyCartItems);
+  function addItem({ id, price, title, count, img, name }) {
+    const updatedCartItems = [...cartItems];
+    const existingItemIndex = updatedCartItems.findIndex(
+      (item) => item.id === id
+    );
+
+    if (existingItemIndex > -1) {
+      updatedCartItems[existingItemIndex].count += count;
+    } else {
+      updatedCartItems.push({
+        id,
+        price,
+        title,
+        count,
+        img,
+        name,
+      });
+    }
+
+    setCartItems(updatedCartItems);
   }
   function countItemsInCart() {
-    let total = 0;
-    cartItems.forEach((item) => {
-      total += item.count;
-    });
-    return total;
+    return cartItems.reduce((total, item) => total + item.count, 0);
   }
   return (
     <cartContext.Provider
       value={{
-        cartItems: [],
-        name: "carrito",
+        cartItems: cartItems,
         countItemsInCart,
         addItem,
         removeItem,

@@ -6,6 +6,7 @@ import ItemCount from "./components/ItemCount";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { CartContextProvider } from "./context/cartContext";
 import CartWidget from "./components/CartWidget";
+import CartContainer from "./components/CartContainer";
 function App() {
   return (
     <CartContextProvider>
@@ -27,6 +28,7 @@ function App() {
             path="/category/:catid"
             element={<ItemListContainer>Catalogo filtrado</ItemListContainer>}
           />
+          <Route path="/cart" element={<CartContainer />} />
         </Routes>
       </BrowserRouter>
     </CartContextProvider>
