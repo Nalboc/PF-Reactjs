@@ -29,4 +29,3 @@ export default function ItemCount(props) {
     </div>
   );
 }
-//TODO: EL MAX == STOCK DE ITEM

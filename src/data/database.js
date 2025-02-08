@@ -19,17 +19,16 @@ const firebaseConfig = {
   appId: "1:422360027619:web:68c8a528dbcbe75a9bd0d6",
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 export default async function getAsyncData() {
-  const collectionRef = collection(db, "bicicletas"); //referencia de coleccion
-  const productsSnapshot = await getDocs(collectionRef); //snapshot de datos
+  const collectionRef = collection(db, "bicicletas");
+  const productsSnapshot = await getDocs(collectionRef);
   const documentsData = productsSnapshot.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
-  return documentsData; //resolve documentData
+  return documentsData;
 }
 export async function getAsyncItemById(itemID) {
   const docRef = doc(db, "bicicletas", itemID);
@@ -40,20 +39,12 @@ export async function getAsyncItemById(itemID) {
 export async function getAsyncItemsByCategory(catID) {
   const productsColRef = collection(db, "bicicletas");
   const q = query(productsColRef, where("category", "==", catID));
-  const productsSnapshot = await getDocs(q); //snapshot de datos
+  const productsSnapshot = await getDocs(q);
   const documentsData = productsSnapshot.docs.map((doc) => {
     return { ...doc.data(), id: doc.id };
   });
-  return documentsData; //resolve documentData
+  return documentsData;
 }
-/*Importa productos a firebase
- async function exportTa() {
-  for (let item of products) {
-    delete item.id;
-    const docID = await addDoc(collection(db, "bicicletas"), item);
-    console.log("creando documento", docID.id);
-  }
-} */
 export async function createBuyOrder(orderData) {
   const newOrderDoc = await addDoc(collection(db, "orders"), orderData);
 
