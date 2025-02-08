@@ -29,6 +29,11 @@ export function CartContextProvider(props) {
   function countItemsInCart() {
     return cartItems.reduce((total, item) => total + item.count, 0);
   }
+  function countTotalPriceInCart() {
+    return cartItems
+      .reduce((total, item) => total + item.price * item.count, 0)
+      .toFixed(2);
+  }
   return (
     <cartContext.Provider
       value={{
@@ -37,6 +42,7 @@ export function CartContextProvider(props) {
         addItem,
         removeItem,
         getTotalPrice,
+        countTotalPriceInCart,
       }}
     >
       {props.children}

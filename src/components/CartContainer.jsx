@@ -16,8 +16,8 @@ function CartContainer() {
     newUserData[inputName] = evt.target.value;
     setUserData(newUserData);
   }
-
-  const { cartItems, removeItem, getTotalPrice } = useContext(cartContext);
+  const { cartItems, removeItem, getTotalPrice, countTotalPriceInCart } =
+    useContext(cartContext);
 
   async function handleCheckout(evt) {
     evt.preventDefault();
@@ -46,6 +46,9 @@ function CartContainer() {
             <h3 className="item-title">{item.title}</h3>
             <p className="item-price">Precio: ${item.price}</p>
             <p className="item-quantity">Unidades: {item.count}</p>
+            <p className="item-subtotal">
+              Subtotal: ${(item.price * item.count).toFixed(2)}
+            </p>
             <button
               className="remove-item-button"
               onClick={() => removeItem(item.id)}
@@ -56,6 +59,9 @@ function CartContainer() {
           <hr />
         </div>
       ))}
+      <div className="total">
+        <h2>Total: ${countTotalPriceInCart()}</h2>
+      </div>
       <form className="checkout-form">
         <div className="form-group">
           <label className="form-label">Nombre</label>
@@ -106,8 +112,3 @@ function CartContainer() {
 }
 
 export default CartContainer;
-/**TODO:Debe mostrar el total de unidades agregadas al context
-Utilizar renderizado condicional para mostrar loaders y mensajes condicionales, como “producto sin stock”, “carrito vacío”, etc.
-Como finalización de la experiencia de usuario, brindarle al usuario el id (o detalles adicionales) de la orden generada en Firestore
-Crear un documento en formato markdown documentando brevemente el proyecto
-**/

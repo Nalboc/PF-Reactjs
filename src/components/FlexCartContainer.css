@@ -107,4 +107,20 @@
   .checkout-form .checkout-button:hover {
     background-color: #0056b3;
   }
-  
+  .total {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-top: 20px;
+    text-align: center;
+    padding: 10px;
+    background-color: #e6f7ff;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  .item-subtotal {
+    font-size: 1.1em;
+    color: #777;
+    margin-top: 5px;
+    font-weight: bold;
+  }
