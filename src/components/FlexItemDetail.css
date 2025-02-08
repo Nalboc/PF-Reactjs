@@ -1,0 +1,100 @@
+/* Estilo para la tarjeta principal */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 300px;
+  margin: 20px auto;
+  padding: 20px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.3s ease;
+}
+
+/* Efecto hover en la tarjeta */
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* Estilo para la imagen */
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+}
+
+/* Descripción */
+.descripcion {
+  margin-bottom: 20px;
+}
+
+.descripcion h3 {
+  font-size: 1.3em;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.descripcion p {
+  font-size: 1em;
+  margin-bottom: 10px;
+}
+
+/* Precio */
+.descripcion div > p {
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+/* Categoría */
+.descripcion p:last-child {
+  font-size: 1em;
+  color: #e94e77;
+}
+
+/* Contenedor de los botones */
+.buttons {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Estilo del botón de "Ver carrito" */
+button {
+  background-color: #272a2c;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+  max-width: 200px;
+  
+}
+
+/* Hover para el botón */
+button:hover {
+  background-color: #0056b3;
+}
+
+/* Enlace sin subrayado */
+a {
+  text-decoration: none;
+}
+
+/* Para centrar el componente ItemCount cuando se muestra */
+.ItemCount {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.ItemCount span {
+    color: #007bff; /* Puedes cambiar el color que prefieras */
+    font-weight: bold;
+    font-size: 1.2em;
+  }

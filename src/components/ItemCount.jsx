@@ -1,4 +1,5 @@
 import { useState } from "react";
+import "./FlexItemDetail.css";
 
 export default function ItemCount(props) {
   const [count, setCount] = useState(1);
@@ -11,7 +12,7 @@ export default function ItemCount(props) {
   };
   return (
     <div>
-      <div>
+      <div className="ItemCount">
         <button onClick={handleSubstract}>➖</button>
         <span>{count}</span>
         <button onClick={handleAdd}>➕</button>
@@ -28,3 +29,4 @@ export default function ItemCount(props) {
     </div>
   );
 }
+//TODO: EL MAX == STOCK DE ITEM

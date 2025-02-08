@@ -1,5 +1,6 @@
 import "./CardProduct.css";
 import { Link } from "react-router-dom";
+
 export default function Item(props) {
   const { price, title, text, img, id } = props;
   return (

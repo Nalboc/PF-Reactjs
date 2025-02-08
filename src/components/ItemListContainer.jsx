@@ -1,16 +1,13 @@
-import getAsyncData, { getAsyncItemsByCategory } from "../data/getAsyncData";
+import getAsyncData, { getAsyncItemsByCategory } from "../data/database";
 import ItemList from "./ItemList";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 export default function ItemListContainer(props) {
   const [products, setProducts] = useState([]);
-  console.log("render de itemlist");
   const { catid } = useParams();
   useEffect(() => {
-    console.log("catid", catid);
     const respuestaPromise =
       catid === undefined ? getAsyncData() : getAsyncItemsByCategory(catid);
-    console.log(respuestaPromise);
     respuestaPromise
       .then((respuesta) => setProducts(respuesta))
       .catch((error) => alert(error));

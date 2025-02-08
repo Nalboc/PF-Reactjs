@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { getAsyncItemById } from "../data/getAsyncData";
+import { getAsyncItemById } from "../data/database";
 import { useParams } from "react-router-dom";
 import { ItemDetail } from "./ItemDetail";
 import Loader from "./Loader";
@@ -13,6 +13,6 @@ export default function ItemDetailContainer() {
     }
     getProduct();
   }, [id]);
-  if (product) return <ItemDetail {...product} />;
+  if (product) return <ItemDetail id={id} {...product} />;
   else return <Loader />;
 }
