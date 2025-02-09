@@ -2,6 +2,8 @@ import { useContext, useState } from "react";
 import cartContext from "../context/cartContext";
 import { createBuyOrder } from "../data/database";
 import "./FlexCartContainer.css";
+import Modal from "./modal";
+import Loader from "./Loader";
 
 function CartContainer() {
   const [userData, setUserData] = useState({
@@ -9,6 +11,10 @@ function CartContainer() {
     surname: "",
     age: "",
   });
+
+  const [orderDetails, setOrderDetails] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   function onInputChange(evt) {
     const inputName = evt.target.name;
@@ -21,6 +27,7 @@ function CartContainer() {
 
   async function handleCheckout(evt) {
     evt.preventDefault();
+    setLoading(true);
 
     const orderData = {
       buyer: {
@@ -35,6 +42,9 @@ function CartContainer() {
 
     const newOrderID = await createBuyOrder(orderData);
     console.log("Compra realizada", newOrderID);
+    setOrderDetails(orderData);
+    setIsModalOpen(true);
+    setLoading(false);
   }
   if (cartItems.length === 0) {
     return (
@@ -113,6 +123,13 @@ function CartContainer() {
             Realizar Compra
           </button>
         </form>
+        {loading && <Loader />}
+        {isModalOpen && (
+          <Modal
+            orderDetails={orderDetails}
+            onClose={() => setIsModalOpen(false)}
+          />
+        )}
       </div>
     );
   }
