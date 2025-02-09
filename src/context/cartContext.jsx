@@ -17,13 +17,18 @@ export function CartContextProvider(props) {
   }
   function addItem({ id, price, title, count, img }) {
     const copyCartItems = [...cartItems];
-    copyCartItems.push({
-      id: id,
-      title: title,
-      img: img,
-      count: count,
-      price: price,
-    });
+    const itemIndex = copyCartItems.findIndex((item) => item.id === id);
+    if (itemIndex !== -1) {
+      copyCartItems[itemIndex].count += count;
+    } else {
+      copyCartItems.push({
+        id: id,
+        title: title,
+        img: img,
+        count: count,
+        price: price,
+      });
+    }
     setCartItems(copyCartItems);
   }
   function countItemsInCart() {
