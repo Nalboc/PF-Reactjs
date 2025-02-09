@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 
 export function ItemDetail(props) {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
-  const { id, price, title, category, text, img } = props;
+  const { id, price, title, category, text, img, stock } = props;
   const { addItem } = useContext(cartContext);
   function handleAddToCart(count) {
     console.log(`Agregaste ${count} ${title}`);
@@ -19,9 +19,10 @@ export function ItemDetail(props) {
       <div className="descripcion">
         <h3>{title}</h3>
         <div>
-          <p>{price}</p>
+          <p>${price}</p>
         </div>
         <p>{category}</p>
+        <p>Disponible: {stock}</p>
       </div>
       <div className="buttons">
         {isAddedToCart ? (
@@ -29,7 +30,7 @@ export function ItemDetail(props) {
             <button>Ver carrito</button>
           </Link>
         ) : (
-          <ItemCount onSubmitCount={handleAddToCart}></ItemCount>
+          <ItemCount onSubmitCount={handleAddToCart} stock={stock}></ItemCount>
         )}
       </div>
     </div>

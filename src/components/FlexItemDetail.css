@@ -33,6 +33,7 @@
 .descripcion p {
   font-size: 1em;
   margin-bottom: 10px;
+  color: #e94e77;
 }
 .descripcion div > p {
   font-size: 1.2em;
